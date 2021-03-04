@@ -5,23 +5,21 @@ import Vaxine from '../../images/vaxine.png';
 const Footer = () => {
 	return (
 		<>
-			<div className='fixed-footer'>
-				<div className='footer-wrapper'>
-					<div className='footer container'>
-						<p id='footerTitle'>A guide to your health</p>
-						<div className='vaccine-wrapper'>
+		<div className='footer'>
+			<div className='footer-style'>
+						<p className='footer-title'>A guide to your health</p>
 							<img
-								className='vaxine-logo'
+								className='footer-logo'
 								src={Vaxine}
-								alt='vaxine name logo'
+								alt='vaxine logo'
 							/>
-						</div>
-						<div>
-							<p className='footer-list'>Terms of Service</p>
-							<p className='footer-list'>Privacy Policy</p>
-							<p id='copyright'>Copyright @2020 Vaxine</p>
-						</div>
-					</div>
+							<div className='footer-list'>
+								<ul>
+									<li>Terms of Service</li>
+									<li>Privacy Policy</li>
+									<li className='footer-copyright'>Copyright @2020 Vaxine</li>
+								</ul>
+							</div>
 				</div>
 			</div>
 		</>
