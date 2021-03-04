@@ -4,10 +4,9 @@ import ProgressOne from '../../images/progressone.png';
 import ItemForm from './ItemForm';
 import HospitalImage from '../../images/national-cancer-institute.jpg';
 
-// import Footer from '../../Components/Footer/index';
-
 const Name = ({ setForm, formData, navigation }) => {
 	const { firstName, lastName, phoneNumber, email } = formData;
+	//destructuring props and using only certain attributes of the formData and naigation object
 
 	const { next } = navigation;
 
@@ -30,9 +29,8 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='First Name'
-					// label="First Name"
 					name='firstName'
-					// value={firstName}
+					//onChange uses setForm to set the formData 
 					onChange={setForm}
 				/>
 			</div>
@@ -40,9 +38,7 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Last Name'
-					// label="Last Name"
 					name='lastName'
-					// value={lastName}
 					onChange={setForm}
 				/>
 			</div>
@@ -50,9 +46,7 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Phone Number'
-					// label="Phone Number"
 					name='phoneNumber'
-					// value={phoneNumber}
 					onChange={setForm}
 				/>
 			</div>
@@ -60,11 +54,9 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Email'
-					// label="Email"
 					name='email'
-					// value={email}
 					onChange={setForm}
-				/>
+					/>
 			</div>
 			<div className='btn-wrapper'>
 				<button onClick={next}>Next</button>

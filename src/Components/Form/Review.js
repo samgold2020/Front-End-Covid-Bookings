@@ -5,20 +5,18 @@ import Disclaimer from './Disclaimer';
 import HospitalImage from '../../images/national-cancer-institute.jpg';
 import ProgressThree from '../../images/progressthree.png';
 
-const Review = ({ setForm, formData, navigation }) => {
+const Review = ({ formData, navigation }) => {
 	const {
 		firstName,
 		lastName,
 		phoneNumber,
 		email,
 		date,
-		availability,
 		hospital,
 	} = formData;
 
 	const { previous } = navigation;
 
-	const { next } = navigation;
 
 	return (
 		<div className='review-wrapper'>
@@ -32,19 +30,19 @@ const Review = ({ setForm, formData, navigation }) => {
 			<h3>Review</h3>
 			<img className='hospitalimg' src={HospitalImage} alt='hospital-fossad' />
 			<div className='review-content'>
-				<b>Name:</b> {`${firstName} ${lastName}`}
+				<b>Name:</b> ${firstName} ${lastName}
 			</div>
 			<div className='review-content'>
-				<b>Phone Number:</b> {`${phoneNumber}`}
+				<b>Phone Number:</b> ${phoneNumber}
 			</div>
 			<div className='review-content'>
-				<b>Email:</b> {`${email}`}
+				<b>Email:</b> ${email}
 			</div>
 			<div className='review-content'>
-				<b>Appointment Date:</b> {`${date}`}
+				<b>Appointment Date:</b> ${date}
 			</div>
 			<div className='review-content'>
-				<b>Location:</b> {`${hospital}`}
+				<b>Location:</b> ${hospital}
 			</div>
 			<div>
 				<div>
@@ -56,11 +54,12 @@ const Review = ({ setForm, formData, navigation }) => {
 				<Link
 					to={{
 						pathname: '/confirmation',
+						//passing the formData Object to the submit component for rendering:
 						state: {
 							formData,
 						},
 					}}>
-					<button>Submit</button>
+					<button id='submit'> Submit</button>
 				</Link>
 			</div>
 		</div>

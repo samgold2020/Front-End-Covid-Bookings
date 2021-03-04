@@ -5,8 +5,8 @@ const ItemForm = ({ label, children, type = "text",  ...otherProps }) => (
   <div className="form">
     {type === "text" ? (
       <>
-        {/* <label>{label}</label> */}
-        <input className="testing" type={type} {...otherProps} />
+      {/* otherProps contains the placeholder text */}
+        <input type={type} {...otherProps} />
       </>
     ) : (
       <>

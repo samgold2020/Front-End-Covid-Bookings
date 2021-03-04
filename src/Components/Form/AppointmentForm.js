@@ -2,14 +2,13 @@ import React from 'react';
 import './appointmentform.css';
 
 import ItemForm from './ItemForm';
-import StateDropTimes from './StatedropTimes';
 import StateDropHospitals from './StatedropHospitals';
 import Calendar from './Calendar';
 import HospitalImage from '../../images/national-cancer-institute.jpg';
 import ProgressBarTwo from '../../images/progresstwo.png';
 
 const AppointmentForm = ({ setForm, formData, navigation }) => {
-	const { availability, date, time, hospital } = formData;
+	const { date, hospital } = formData;
 
 	const { previous, next } = navigation;
 
@@ -32,9 +31,7 @@ const AppointmentForm = ({ setForm, formData, navigation }) => {
 							<StateDropHospitals
 								className='hospital-field'
 								placeholder="Choose a Hospital"
-								// label='Choose a Hospital  '
 								name='hospital'
-								// value={hospital}
 								onChange={setForm}
 							/>
 						</div>
