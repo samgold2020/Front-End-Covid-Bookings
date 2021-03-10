@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './review.css';
-import Disclaimer from './Disclaimer';
-import HospitalImage from '../../images/national-cancer-institute.jpg';
-import ProgressThree from '../../images/progressthree.png';
 
-const Review = ({ setForm, formData, navigation }) => {
+import './step_three.css';
+import HospitalImage from '../../../images/national-cancer-institute.jpg';
+import ProgressThree from '../../../images/progressthree.png';
+
+//Component imports: 
+import Disclaimer from '../Disclaimer';
+
+const StepThree = ({ formData, navigation }) => {
 	const {
 		firstName,
 		lastName,
 		phoneNumber,
 		email,
 		date,
-		availability,
 		hospital,
 	} = formData;
 
-	const { previous } = navigation;
-
-	const { next } = navigation;
+	const { previous, next } = navigation;
 
 	return (
 		<div className='review-wrapper'>
@@ -54,17 +54,21 @@ const Review = ({ setForm, formData, navigation }) => {
 					<Disclaimer />
 				</div>
 				<Link
+				//Link with the path name "/confirmation" for use useLocation hook to get the location 
+				//object that represents the current URL
 					to={{
 						pathname: '/confirmation',
 						state: {
 							formData,
 						},
 					}}>
-					<button>Submit</button>
+					<div className='btn-wrapper'>
+						<button> Submit</button>
+					</div>
 				</Link>
 			</div>
 		</div>
 	);
 };
 
-export default Review;
+export default StepThree;

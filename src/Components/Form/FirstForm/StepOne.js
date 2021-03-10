@@ -1,12 +1,15 @@
 import React from 'react';
-import './name.css';
-import ProgressOne from '../../images/progressone.png';
-import ItemForm from './ItemForm';
-import HospitalImage from '../../images/national-cancer-institute.jpg';
 
-// import Footer from '../../Components/Footer/index';
+//Style and image imports
+import './step_one.css';
+import ProgressOne from '../../../images/progressone.png';
+import HospitalImage from '../../../images/national-cancer-institute.jpg';
 
-const Name = ({ setForm, formData, navigation }) => {
+//Component import
+import ItemForm from '../ItemForm';
+
+const StepOne = ({ setForm, formData, navigation }) => {
+	//Destructuring props to use only certain attributes of the formData and naigation object
 	const { firstName, lastName, phoneNumber, email } = formData;
 
 	const { next } = navigation;
@@ -14,14 +17,16 @@ const Name = ({ setForm, formData, navigation }) => {
 	return (
 		<div className='first-form-wrapper'>
 			<div className='progress-bar'>
+				{/* display image for ProgressOne */}
 				<img
 					className='progress-bar'
 					src={ProgressOne}
 					alt='progress bar step 1'
 				/>
 			</div>
-			<h2>Register</h2>
+			<h2 id='register-two'>Register</h2>
 			<div className='form-content'>
+				{/* display hospitalImage */}
 				<img
 					className='hospitalimg'
 					src={HospitalImage}
@@ -30,9 +35,9 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='First Name'
-					// label="First Name"
+					//useForm takes the name to update the object
 					name='firstName'
-					// value={firstName}
+					//onChange uses setForm to set the formData 
 					onChange={setForm}
 				/>
 			</div>
@@ -40,9 +45,7 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Last Name'
-					// label="Last Name"
 					name='lastName'
-					// value={lastName}
 					onChange={setForm}
 				/>
 			</div>
@@ -50,9 +53,7 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Phone Number'
-					// label="Phone Number"
 					name='phoneNumber'
-					// value={phoneNumber}
 					onChange={setForm}
 				/>
 			</div>
@@ -60,11 +61,9 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='Email'
-					// label="Email"
 					name='email'
-					// value={email}
 					onChange={setForm}
-				/>
+					/>
 			</div>
 			<div className='btn-wrapper'>
 				<button onClick={next}>Next</button>
@@ -73,4 +72,4 @@ const Name = ({ setForm, formData, navigation }) => {
 	);
 };
 
-export default Name;
+export default StepOne;

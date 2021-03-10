@@ -8,12 +8,10 @@ import { FaBars } from 'react-icons/fa';
 const Navbar = () => {
   return (
     <div className="navbar container">
-      <div className="mobile"><FaBars /></div>
-      <div className="nav-logo-wrapper">
+      <div className="navbar-mobile"><FaBars /></div>
       <Link to='/'>
       <img  className="navbar-logo" src={Vaxine} alt="vaxing logo"/>
       </Link>
-      </div>
     </div>
   )
 }

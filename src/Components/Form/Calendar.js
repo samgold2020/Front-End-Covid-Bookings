@@ -4,10 +4,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const Calendar = ({ onChange }) => {
+	//useState uses setStartDate to pass a long a new Date() object into the date picker
 	const [startDate, setStartDate] = useState(new Date());
 	return (
 		<DatePicker
-			// placeholderText="Click to select a date"
 			selected={startDate}
 			onChange={(date) => {
 				setStartDate(date);

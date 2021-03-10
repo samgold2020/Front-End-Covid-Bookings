@@ -1,3 +1,4 @@
+/*Review Structure*/
 .review-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -23,4 +24,8 @@
 
 h3{
 	font-size: 24px;
+}
+
+#submit {
+	margin: 20px;
 }
