@@ -1,26 +1,32 @@
 import React from 'react';
-import './name.css';
-import ProgressOne from '../../images/progressone.png';
-import ItemForm from './ItemForm';
-import HospitalImage from '../../images/national-cancer-institute.jpg';
 
-const Name = ({ setForm, formData, navigation }) => {
+//Style and image imports
+import './step_one.css';
+import ProgressOne from '../../../images/progressone.png';
+import HospitalImage from '../../../images/national-cancer-institute.jpg';
+
+//Component import
+import ItemForm from '../ItemForm';
+
+const StepOne = ({ setForm, formData, navigation }) => {
+	//Destructuring props to use only certain attributes of the formData and naigation object
 	const { firstName, lastName, phoneNumber, email } = formData;
-	//destructuring props and using only certain attributes of the formData and naigation object
 
 	const { next } = navigation;
 
 	return (
 		<div className='first-form-wrapper'>
 			<div className='progress-bar'>
+				{/* display image for ProgressOne */}
 				<img
 					className='progress-bar'
 					src={ProgressOne}
 					alt='progress bar step 1'
 				/>
 			</div>
-			<h2>Register</h2>
+			<h2 id='register-two'>Register</h2>
 			<div className='form-content'>
+				{/* display hospitalImage */}
 				<img
 					className='hospitalimg'
 					src={HospitalImage}
@@ -29,6 +35,7 @@ const Name = ({ setForm, formData, navigation }) => {
 				<ItemForm
 					className='firstform'
 					placeholder='First Name'
+					//useForm takes the name to update the object
 					name='firstName'
 					//onChange uses setForm to set the formData 
 					onChange={setForm}
@@ -65,4 +72,4 @@ const Name = ({ setForm, formData, navigation }) => {
 	);
 };
 
-export default Name;
+export default StepOne;

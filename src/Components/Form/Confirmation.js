@@ -1,83 +1,68 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+
+//Style and image imports
 import './confirmation.css';
 import VaxineShotLogo from '../../images/vaxine-shot-logo.png';
 import ProgressFour from '../../images/progressfour.png';
 
-const ConfirmationPage = (props) => {
+const ConfirmationPage = () => {
+	//Location gets back the location object from the './confirmation' URL path, which contains the current formData object
 	const location = useLocation();
-	// Gets back information object from client
-	// console.log(location.state.formData);
-	const {
-		firstName,
-		lastName,
-		date,
-		hospital,
-		email,
-		phoneNumber,
-	} = location.state.formData;
+
+	//Setting the formData to a variable 
+	let userData = location.state.formData
+	let wholeName = `${userData.firstName} ${userData.lastName}`
+
+	//Set userInputArray to an empty array, this will hold all of our userInput which we get back in the location object 
+	let userInputArray = []
+
+	userInputArray.push(
+		wholeName, 
+		userData.email, 
+		userData.phoneNumber,
+		//Date comes in as an object, converting it to string for map in return
+		userData.date.toString(), 
+		userData.hospital
+		);
 
 	return (
-		<div className='confirmation-wrapper'>
-			<div className='confirmation-content'>
-				<div className='progress-bar'>
-					<img
-						className='progress-bar'
-						src={ProgressFour}
-						alt='progress bar step 4'
-					/>
-				</div>
-				<h1>
-					Appointment <br />
-					Confirmed
-				</h1>
-				<img className='vaxineimg' src={VaxineShotLogo} alt='vaxine-logo' />
-				<div className='content'>
-					<b>Name:</b> {firstName} {lastName}
-				</div>
-				<div className='content'>
-					<b>Email:</b> {email}
-				</div>
-				<div className='content'>
-					<b>Phone Number:</b> {phoneNumber}
-				</div>
-				<div className='content'>
-					<b>Hospital:</b> {hospital}
-				</div>
-				<div className='content'>
-					<b>Date: </b>
-					{date.toString()}
-				</div>
-
-				<div className='confirmation-updates-wrapper'>
-					<div className='confirmation-updates'>
-						<p>
-							YOU WILL BE RECEIVING A CONFIRMATION E-MAIL. PLEASE MAKE SURE TO
-							BRING IT TO YOUR APPOINTMENT.
-						</p>
-						<br></br>
-						<br></br>
-						<p>
+		<>
+			<div className="confirmation-wrapper">
+				{/* image for the progress bar */}
+				<img
+				className='progress-bar'
+				src={ProgressFour}
+				alt='progress bar step 4'
+				/>
+				<h1>Appointment Confirmed</h1>
+				{/* image for vaxine logo confirmation */}
+				<img 
+				className='vaxine-img'
+				src={VaxineShotLogo} 
+				alt='vaxine-logo' 
+				/>
+				<ul>
+					{/* Map over the userInputArray to display each item */}
+					{userInputArray.map(function(item, index){
+						return <li className='confirmation-data' key={index}>{item}</li>
+					})}
+				</ul>
+					<div className='disclaimer-content'>
+						<p id='disclaimer'>
 							IF YOU NEED TO RESCHEDULE YOUR APPOINTMENT, MAKE SURE TO CANCEL
-							YOUR CURRENT APPOINTMENT WITHIN 24 HOURS BEFORE THE CONFIRMED DATE
-							AND TIME.
+								YOUR CURRENT APPOINTMENT WITHIN 24 HOURS BEFORE THE CONFIRMED DATE
+								AND TIME.
 						</p>
-					</div>
-					{/* <div className='button-wrapper'>
-				<Link className='back-home-button' to='/'>
-					Back to Home
-				</Link> */}
-					<div className='homebtn'>
+				</div>
+					<div className='btn-wrapper'>
 						<Link to='/'>
-							{' '}
-							<button>Home</button>{' '}
+							<button>Home</button>
 						</Link>
 					</div>
-				</div>
-				<div className='space'> </div>
 			</div>
-		</div>
-	);
-};
+		</>
+	)
+}
 
 export default ConfirmationPage;

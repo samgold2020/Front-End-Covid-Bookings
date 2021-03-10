@@ -8,19 +8,16 @@ const hospitalOptions = [
  ["Kings County Hospital Center", "Kings County Hospital Center"]
 ]
 
-
 const StateDropHospitals = ({ label, ...others }) => (
   <>
   <div>
     <select {...others}>
       {/* //map creates a new array  with the required value and the name*/}
       {hospitalOptions.map(([value, name]) => (
-        <option value={value}>{name}</option>
+        <option key={name} value={value}>{name}</option>
         ))}
     </select>
-      </div>
-      <div>
-    </div>
+      </div> 
   </>
 );
 

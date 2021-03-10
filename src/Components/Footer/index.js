@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './footer.css';
 import Vaxine from '../../images/vaxine.png';
 
@@ -12,7 +13,7 @@ const Footer = () => {
 								className='footer-logo'
 								src={Vaxine}
 								alt='vaxine logo'
-							/>
+							/> 
 							<div className='footer-list'>
 								<ul>
 									<li>Terms of Service</li>

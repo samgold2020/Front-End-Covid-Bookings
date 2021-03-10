@@ -1,13 +1,15 @@
 import React from 'react';
-import './appointmentform.css';
 
-import ItemForm from './ItemForm';
-import StateDropHospitals from './StatedropHospitals';
-import Calendar from './Calendar';
-import HospitalImage from '../../images/national-cancer-institute.jpg';
-import ProgressBarTwo from '../../images/progresstwo.png';
+//Style and Image imports
+import './step_two.css';
+import HospitalImage from '../../../images/national-cancer-institute.jpg';
+import ProgressBarTwo from '../../../images/progresstwo.png';
 
-const AppointmentForm = ({ setForm, formData, navigation }) => {
+//Component imports
+import StateDropHospitals from '../StatedropHospitals';
+import Calendar from '../Calendar';
+
+const StepTwo = ({ setForm, formData, navigation }) => {
 	const { date, hospital } = formData;
 
 	const { previous, next } = navigation;
@@ -58,4 +60,4 @@ const AppointmentForm = ({ setForm, formData, navigation }) => {
 	);
 };
 
-export default AppointmentForm;
+export default StepTwo;

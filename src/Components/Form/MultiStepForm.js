@@ -1,23 +1,23 @@
 import React from 'react';
 import { useForm, useStep } from 'react-hooks-helper';
-//useStep is used to simplify the multi-page input form, more information can be found here: https://www.npmjs.com/package/react-hooks-helper
+//useStep and useForm is used to simplify navigation in the multi-page -
+//input form as well as store form data in a useForm object https://www.npmjs.com/package/react-hooks-helper
 
-//child components to be passed in as steps
-import Name from './Name';
-import AppointmentForm from './AppointmentForm';
-import Review from './Review';
-import ConfirmationPage from './Confirmation';
+//Child components of the MultiStepForm
+import StepOne from './FirstForm/StepOne';
+import StepTwo from './SecondForm/StepTwo';
+import StepThree from './ThirdForm/StepThree';
+import Confirmation from './Confirmation';
 
-//using the useStep hooks helper we are passing the key "steps" an array consisting of steps. 
-//Throughout the form we will use "previous" and "next" to manually move through the form. 
+//Passing "steps" an array consisting of ordered steps to be rendered 
 const steps = [
-	{ id: 'name' },
-	{ id: 'appointmentform' },
-	{ id: 'review' },
-	{ id: 'confirmationpage' },
+	{ id: 'one' },
+	{ id: 'two' },
+	{ id: 'three' },
+	{ id: 'confirmation' },
 ];
 
-//created a defaultData object to set each datatype as an empty string
+//defaultData object to initiate each datatype value as an empty string. 
 const defaultData = {
 	firstName: '',
 	lastName: '',
@@ -35,21 +35,20 @@ const MultiStepForm = () => {
 	const { step, navigation } = useStep({ initialStep: 0, steps });
 	const { id } = step;
 
-	//since the defaultData is stored in formData I needed to pass that to each component step in the 
-	//multistep form, I also need to use setForm and navigation for previous & next,
-	//so I decided to pass them via props down to the child components
+	//In each step of the MultiStepForm we need to pass the formData defaultData, 
+	//set it with setForm, and pass navigation to move forward and backward through the form.
 	const props = { formData, setForm, navigation };
-	// console.log("props", props)
 
 	switch (id) {
-		case 'name':
-			return <Name {...props} />;
-		case 'appointmentform':
-			return <AppointmentForm {...props} />;
-		case 'review':
-			return <Review {...props} />;
-		case 'confirmationpage':
-			return <ConfirmationPage {...props} />;
+		case 'one':
+			//Sending destructured props to each child component so as to unpack values for setForm
+			return <StepOne {...props} />;
+		case 'two':
+			return <StepTwo {...props} />;
+		case 'three':
+			return <StepThree {...props} />;
+		case 'confirmation':
+			return <Confirmation />;
 		default:
 			return null;
 	}

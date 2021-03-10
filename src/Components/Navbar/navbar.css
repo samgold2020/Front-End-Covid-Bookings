@@ -3,6 +3,7 @@
  padding: 0;
  box-sizing: border-box;
 }
+
 /*Navbar Structure*/
 .navbar {
   width: 100%;
@@ -18,7 +19,7 @@
   height: 40px;
 }
 
-.mobile{
+.navbar-mobile{
 display: none;
 position: absolute;
 top: 0;
@@ -28,7 +29,7 @@ padding: 20px 10px 0 0;
 }
 
 @media screen and (max-width: 900px) {
-  .mobile {
+  .navbar-mobile {
     display: block;
   color: white;
   }
